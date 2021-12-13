@@ -7,11 +7,6 @@ import { environment } from '../../../meeting-templates-app/src/environments/env
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-console.log('dupa');
-console.log(JSON.stringify(process.env.NODE_ENV));
-console.log(JSON.stringify(process.env.NODE_ENV2));
-console.log(JSON.stringify(process.env.FIRESTORE_API_KEY));
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
