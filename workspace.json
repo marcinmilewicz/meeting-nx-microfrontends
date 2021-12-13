@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "projects": {
+    "meeting-scheduled-app": "apps/meeting-scheduled-app",
+    "meeting-scheduled-meeting-scheduled-feature": "libs/meeting-scheduled/meeting-scheduled-feature",
+    "meeting-templates-app": "apps/meeting-templates-app",
+    "meeting-templates-meeting-templates-feature": "libs/meeting-templates/meeting-templates-feature",
+    "meetings-header-app": "apps/meetings-header-app",
+    "meetings-shell-app": "apps/meetings-shell-app",
+    "microfrontendly-ng": "libs/microfrontendly-ng",
+    "shared-core": "libs/shared/core",
+    "shared-meetings-data-layer": "libs/shared/meetings-data-layer",
+    "shared-ui": "libs/shared/ui"
+  }
+}

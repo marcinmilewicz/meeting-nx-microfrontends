@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/meetings-data-layer",
+  "sourceRoot": "libs/shared/meetings-data-layer/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/meetings-data-layer"],
+      "options": {
+        "jestConfig": "libs/shared/meetings-data-layer/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/meetings-data-layer/src/**/*.ts",
+          "libs/shared/meetings-data-layer/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header class="MeetingTemplateCard-header">
+    <mat-icon mat-card-avatar>forum</mat-icon>
+    <mat-card-title>{{ template.name }}</mat-card-title>
+  </mat-card-header>
+  <img class="MeetingTemplateCard-image" mat-card-image [src]="template.imageUrl" alt="Photo of {{ template.name }}" />
+  <mat-card-content>
+    <p>{{ template.description }}</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-stroked-button (click)="this.scheduleMeeting.emit($event)">
+      <!--        <mat-icon mat-card-avatar>add_circle</mat-icon>-->
+      Schedule meeting
+    </button>
+  </mat-card-actions>
+</mat-card>

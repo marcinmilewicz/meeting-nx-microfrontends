@@ -1,0 +1,20 @@
+.mat-toolbar {
+  button {
+    opacity: 0.6;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+      //background-color: mat-color($app-primary, 50);
+    }
+
+    &.active {
+      // color: mat-color($app-primary);
+      opacity: 1;
+    }
+
+    &.mat-icon-button {
+      margin-right: 8px;
+    }
+  }
+}

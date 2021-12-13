@@ -1,0 +1,97 @@
+{
+  "projectType": "application",
+  "root": "apps/meeting-scheduled-app",
+  "sourceRoot": "apps/meeting-scheduled-app/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/meeting-scheduled-app",
+        "index": "apps/meeting-scheduled-app/src/index.html",
+        "main": "apps/meeting-scheduled-app/src/main.ts",
+        "polyfills": "apps/meeting-scheduled-app/src/polyfills.ts",
+        "tsConfig": "apps/meeting-scheduled-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/meeting-scheduled-app/src/favicon.ico", "apps/meeting-scheduled-app/src/assets"],
+        "styles": ["apps/meeting-scheduled-app/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/meeting-scheduled-app/webpack.config.cjs"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/meeting-scheduled-app/src/environments/environment.ts",
+              "with": "apps/meeting-scheduled-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/meeting-scheduled-app/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "meeting-scheduled-app:build:production"
+        },
+        "development": {
+          "browserTarget": "meeting-scheduled-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 5002
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "meeting-scheduled-app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/meeting-scheduled-app/src/**/*.ts", "apps/meeting-scheduled-app/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/meeting-scheduled-app"],
+      "options": {
+        "jestConfig": "apps/meeting-scheduled-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

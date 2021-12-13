@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/core",
+  "sourceRoot": "libs/shared/core/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/core"],
+      "options": {
+        "jestConfig": "libs/shared/core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/core/src/**/*.ts", "libs/shared/core/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

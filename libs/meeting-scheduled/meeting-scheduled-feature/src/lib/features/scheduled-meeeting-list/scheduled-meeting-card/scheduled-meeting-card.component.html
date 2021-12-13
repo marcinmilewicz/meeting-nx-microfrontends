@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>event_note</mat-icon>
+    <mat-card-title>{{ scheduledMeeting.name }}</mat-card-title>
+  </mat-card-header>
+  <img
+    class="MeetingScheduledCard-image"
+    mat-card-image
+    [src]="scheduledMeeting.imageUrl"
+    alt="Photo of {{ scheduledMeeting.name }}"
+  />
+  <mat-card-content>
+    <p>{{ scheduledMeeting.description }}</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-stroked-button>Details</button>
+    <button mat-stroked-button (click)="removeScheduledMeeting.next(scheduledMeeting.id)">Remove</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,101 @@
+{
+  "projectType": "application",
+  "root": "apps/meetings-shell-app",
+  "sourceRoot": "apps/meetings-shell-app/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/meetings-shell-app",
+        "index": "apps/meetings-shell-app/src/index.html",
+        "main": "apps/meetings-shell-app/src/main.ts",
+        "polyfills": "apps/meetings-shell-app/src/polyfills.ts",
+        "tsConfig": "apps/meetings-shell-app/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/meetings-shell-app/src/favicon.ico", "apps/meetings-shell-app/src/assets"],
+        "styles": ["apps/meetings-shell-app/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/meetings-shell-app/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/meetings-shell-app/src/environments/environment.ts",
+              "with": "apps/meetings-shell-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/meetings-shell-app/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "meetings-shell-app:build:production"
+        },
+        "development": {
+          "browserTarget": "meetings-shell-app:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {}
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "meetings-shell-app:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/meetings-shell-app/src/**/*.ts", "apps/meetings-shell-app/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/meetings-shell-app"],
+      "options": {
+        "jestConfig": "apps/meetings-shell-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "serve-mfe": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx serve meetings-shell-app"]
+      }
+    }
+  },
+  "tags": []
+}

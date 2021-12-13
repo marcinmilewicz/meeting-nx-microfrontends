@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="mat-elevation-z1">
+  <button
+    *ngFor="let route of routes"
+    mat-button
+    [routerLink]="route.routePath"
+    routerLinkActive
+    #rla="routerLinkActive"
+    [ngClass]="{ active: rla.isActive }"
+  >
+    <mat-icon>event_note</mat-icon>
+    <!--    <mat-icon>{{button.iconName}}</mat-icon>-->
+    {{ route.displayName }}
+  </button>
+
+  <span fxFlex></span>
+  <!--  <button mat-icon-button [matMenuTriggerFor]="overflowMenu" class="overflowMenu"-->
+  <!--          *ngIf="overflowMenuItems.length">-->
+  <!--    <mat-icon>more_vert</mat-icon>-->
+  <!--  </button>-->
+  <!--  <mat-menu #overflowMenu="matMenu" [overlapTrigger]="false">-->
+  <!--    <button mat-menu-item color="primary"-->
+  <!--            *ngFor="let item of overflowMenuItems"-->
+  <!--            [routerLink]="item.path">-->
+  <!--      <mat-icon>{{item.iconName}}</mat-icon>-->
+  <!--      <span>{{item.label}}</span>-->
+  <!--    </button>-->
+  <!--  </mat-menu>-->
+</mat-toolbar>

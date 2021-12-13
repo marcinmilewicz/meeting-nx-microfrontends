@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2018", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "types": ["node"],
+    "paths": {
+      "@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-feature": [
+        "libs/meeting-scheduled/meeting-scheduled-feature/src/index.ts"
+      ],
+      "@meetings-nx-microfrontends/meeting-templates/meeting-templates-feature": [
+        "libs/meeting-templates/meeting-templates-feature/src/index.ts"
+      ],
+      "@meetings-nx-microfrontends/shared/core": ["libs/shared/core/src/index.ts"],
+      "@meetings-nx-microfrontends/shared/meetings-data-layer": ["libs/shared/meetings-data-layer/src/index.ts"],
+      "@meetings-nx-microfrontends/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@microfrontendly/ng": ["libs/microfrontendly-ng/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

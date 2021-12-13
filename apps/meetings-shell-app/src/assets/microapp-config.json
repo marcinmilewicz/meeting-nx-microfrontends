@@ -1,0 +1,27 @@
+{
+  "angularRemoteLazyModules": [
+    {
+      "remoteEntry": "http://localhost:5001/meetingTemplatesApp.js",
+      "remoteName": "meetingTemplatesApp",
+      "exposedModule": "MeetingTemplatesAppModule",
+      "displayName": "Meeting Templates",
+      "routePath": "meeting-templates",
+      "ngModuleName": "MeetingTemplatesAppModule"
+    },
+    {
+      "remoteEntry": "http://localhost:5002/meetingScheduledApp.js",
+      "remoteName": "meetingScheduledApp",
+      "exposedModule": "MeetingScheduledAppModule",
+      "displayName": "Meeting Scheduled",
+      "routePath": "meeting-scheduled",
+      "ngModuleName": "MeetingScheduledAppModule"
+    }
+  ],
+  "angularRemoteModules": [
+    {
+      "remoteEntry": "http://localhost:5100/meetingsHeaderApp.js",
+      "remoteName": "meetingsHeaderApp",
+      "exposedModule": "MeetingsHeaderComponent"
+    }
+  ]
+}

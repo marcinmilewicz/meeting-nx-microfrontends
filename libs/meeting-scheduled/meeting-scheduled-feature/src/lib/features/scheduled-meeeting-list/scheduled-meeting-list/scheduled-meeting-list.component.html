@@ -1,0 +1,8 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="30px grid">
+  <ms-scheduled-meeting-card
+    fxFlex="0 1 calc(33%-5px)"
+    *ngFor="let meeting of scheduledMeetings$ | async"
+    [scheduledMeeting]="meeting"
+    (removeScheduledMeeting)="removeScheduledMeeting(meeting.id)"
+  ></ms-scheduled-meeting-card>
+</div>

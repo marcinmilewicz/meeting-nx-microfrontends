@@ -1,0 +1,8 @@
+<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="30px grid">
+  <mt-meeting-template-card
+    fxFlex="0 1 calc(33%-5px)"
+    *ngFor="let template of templates$ | async"
+    [template]="template"
+    (scheduleMeeting)="scheduleMeeting(template)"
+  ></mt-meeting-template-card>
+</div>

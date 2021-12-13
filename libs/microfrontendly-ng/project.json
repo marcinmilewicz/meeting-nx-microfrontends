@@ -1,0 +1,39 @@
+{
+  "projectType": "library",
+  "root": "libs/microfrontendly-ng",
+  "sourceRoot": "libs/microfrontendly-ng/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/microfrontendly-ng"],
+      "options": {
+        "project": "libs/microfrontendly-ng/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/microfrontendly-ng/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/microfrontendly-ng/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/microfrontendly-ng"],
+      "options": {
+        "jestConfig": "libs/microfrontendly-ng/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/microfrontendly-ng/src/**/*.ts", "libs/microfrontendly-ng/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

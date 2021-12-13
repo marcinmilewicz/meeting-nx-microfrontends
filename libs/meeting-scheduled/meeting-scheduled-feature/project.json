@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/meeting-scheduled/meeting-scheduled-feature",
+  "sourceRoot": "libs/meeting-scheduled/meeting-scheduled-feature/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/meeting-scheduled/meeting-scheduled-feature"],
+      "options": {
+        "jestConfig": "libs/meeting-scheduled/meeting-scheduled-feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/meeting-scheduled/meeting-scheduled-feature/src/**/*.ts",
+          "libs/meeting-scheduled/meeting-scheduled-feature/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
