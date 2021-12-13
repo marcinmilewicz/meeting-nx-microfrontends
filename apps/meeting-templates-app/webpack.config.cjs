@@ -1,5 +1,9 @@
 const { ModuleFederationPlugin } = require('webpack').container;
-const { createDefinePluginConfig } = require('../../tools/build/webpack-tools');
+const {
+  createDefinePluginConfig,
+  getAngularMappings,
+  getInternalLibsMappings,
+} = require('../../tools/build/webpack-tools');
 
 module.exports = {
   output: {
@@ -25,18 +29,8 @@ module.exports = {
         MeetingTemplatesAppModule: 'apps/meeting-templates-app/src/app/remote-entry/meeting-templates-app.module.ts',
       },
       shared: {
-        '@angular/core': { singleton: true, strictVersion: true },
-        '@angular/common': { singleton: true, strictVersion: true },
-        '@angular/common/http': { singleton: true, strictVersion: true },
-        '@angular/router': { singleton: true, strictVersion: true },
-        '@meetings-nx-microfrontends/shared/meetings-data-layer': {
-          singleton: true,
-          import: 'libs/shared/meetings-data-layer/src/index',
-        },
-        '@meetings-nx-microfrontends/shared/core': {
-          singleton: true,
-          import: 'libs/shared/core/src/index.ts',
-        },
+        ...getAngularMappings(),
+        ...getInternalLibsMappings(),
       },
     }),
   ],

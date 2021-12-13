@@ -1,5 +1,5 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const { createDefinePluginConfig } = require('../../tools/build/webpack-tools');
+const { createDefinePluginConfig, getAngularMappings } = require('../../tools/build/webpack-tools');
 
 module.exports = {
   output: {
@@ -19,12 +19,7 @@ module.exports = {
       exposes: {
         MeetingsHeaderComponent: 'apps/meetings-header-app/src/app/header/meetings-header.component.ts',
       },
-      shared: {
-        '@angular/core': { singleton: true, strictVersion: true },
-        '@angular/common': { singleton: true, strictVersion: true },
-        '@angular/common/http': { singleton: true, strictVersion: true },
-        '@angular/router': { singleton: true, strictVersion: true },
-      },
+      shared: { ...getAngularMappings() },
     }),
   ],
 };

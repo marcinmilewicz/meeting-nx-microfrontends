@@ -1,5 +1,9 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const { createDefinePluginConfig, createModuleFederationMappings } = require('../../tools/build/webpack-tools');
+const {
+  createDefinePluginConfig,
+  getAngularMappings,
+  getInternalLibsMappings,
+} = require('../../tools/build/webpack-tools');
 
 module.exports = {
   output: {
@@ -20,7 +24,10 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       library: { type: 'module' },
-      shared: { ...crer },
+      shared: {
+        ...getAngularMappings(),
+        ...getInternalLibsMappings(),
+      },
     }),
     createDefinePluginConfig(),
   ],
