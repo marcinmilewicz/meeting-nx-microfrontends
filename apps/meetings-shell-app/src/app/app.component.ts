@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  modules$: Observable<AngularRemoteLazyModule[]> = this.microfrontendlyNgService.angularRemoteLazyModules$;
-
-  constructor(@Inject(MICROFRONTENDLY_SERVICE) private microfrontendlyNgService: MicrofrontendlyNgService) {}
+  // modules$: Observable<AngularRemoteLazyModule[]> = this.microfrontendlyNgService.angularRemoteLazyModules$;
+  //
+  // constructor(@Inject(MICROFRONTENDLY_SERVICE) private microfrontendlyNgService: MicrofrontendlyNgService) {}
 }
