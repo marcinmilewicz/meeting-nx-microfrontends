@@ -8,9 +8,9 @@
     "start:templates": "nx serve meeting-templates-app",
     "start:scheduled": "nx serve meeting-scheduled-app",
     "build": "nx build",
-    "build:header": "nx serve meetings-header-app",
-    "build:templates": "nx serve meeting-templates-app",
-    "build:scheduled": "nx serve meeting-scheduled-app",
+    "build:header": "nx build meetings-header-app",
+    "build:templates": "nx build meeting-templates-app",
+    "build:scheduled": "nx build meeting-scheduled-app",
     "test": "nx test",
     "postinstall": "ngcc --properties es2015 browser module main"
   },
