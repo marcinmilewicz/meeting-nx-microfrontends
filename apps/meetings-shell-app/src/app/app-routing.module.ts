@@ -6,7 +6,7 @@ import { initialRoutes, staticRoutes } from './routes';
 @NgModule({
   imports: [
     MicrofrontendlyNg.withDynamicConfiguration('./assets/microapp-config.json', initialRoutes),
-    RouterModule.forRoot(staticRoutes),
+    RouterModule.forRoot(initialRoutes),
   ],
   exports: [RouterModule, MicrofrontendlyNg],
 })

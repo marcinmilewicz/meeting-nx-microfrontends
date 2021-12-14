@@ -13,7 +13,6 @@ module.exports = {
   plugins: [
     createDefinePluginConfig(),
     new ModuleFederationPlugin({
-      library: { type: 'var', name: 'meetingsHeaderApp' },
       name: 'meetingsHeaderApp',
       filename: 'meetingsHeaderApp.js',
       exposes: {

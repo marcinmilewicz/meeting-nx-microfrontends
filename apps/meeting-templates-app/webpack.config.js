@@ -10,10 +10,6 @@ module.exports = {
     uniqueName: 'meetingTemplatesApp',
     publicPath: 'http://localhost:5001/',
   },
-  devServer: {
-    liveReload: true,
-    hot: true,
-  },
   optimization: {
     runtimeChunk: false,
     minimize: false,
@@ -21,7 +17,6 @@ module.exports = {
   plugins: [
     createDefinePluginConfig(),
     new ModuleFederationPlugin({
-      // library: { type: 'var', name: 'meetingTemplatesApp' },
       name: 'meetingTemplatesApp',
       filename: 'meetingTemplatesApp.js',
       exposes: {

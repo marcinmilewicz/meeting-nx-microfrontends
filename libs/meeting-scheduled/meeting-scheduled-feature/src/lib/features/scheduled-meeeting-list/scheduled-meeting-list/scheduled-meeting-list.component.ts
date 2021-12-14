@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { WithId } from '@meetings-nx-microfrontends/shared/core';
 import { MeetingScheduledRepository, ScheduledMeeting } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'ms-scheduled-meeting-list',
@@ -9,7 +10,13 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScheduledMeetingListComponent {
-  readonly scheduledMeetings$: Observable<ScheduledMeeting[]> = this.meetingScheduledRepository.getAll();
+  readonly scheduledMeetings$: Observable<ScheduledMeeting[]> = this.meetingScheduledRepository
+    .getAll()
+    .pipe(
+      map((scheduledMeetings: WithId<ScheduledMeeting, string>[]) =>
+        scheduledMeetings.sort(({ startTime: first }, { startTime: second }) => parseInt(second) - parseInt(first))
+      )
+    );
   constructor(private meetingScheduledRepository: MeetingScheduledRepository) {}
 
   removeScheduledMeeting(id: string) {

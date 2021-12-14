@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   MeetingScheduledRepository,
   MeetingTemplate,
   MeetingTemplatesRepository,
   ScheduledMeetingBase,
 } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
-import { Observable } from 'rxjs';
+import { from, Observable, switchMap, take } from 'rxjs';
 
 @Component({
   selector: 'mt-meeting-template-list',
@@ -18,7 +19,8 @@ export class MeetingTemplateListComponent {
 
   constructor(
     private meetingTemplatesRepository: MeetingTemplatesRepository,
-    private meetingScheduledRepository: MeetingScheduledRepository
+    private meetingScheduledRepository: MeetingScheduledRepository,
+    private router: Router
   ) {}
 
   scheduleMeeting({ id, ...template }: MeetingTemplate) {
@@ -29,6 +31,12 @@ export class MeetingTemplateListComponent {
       endTime: Date.now().toString(),
     };
 
-    this.meetingScheduledRepository.create(scheduledMeeting).subscribe();
+    this.meetingScheduledRepository
+      .create(scheduledMeeting)
+      .pipe(
+        take(1),
+        switchMap(() => from(this.router.navigate(['meeting-scheduled'])))
+      )
+      .subscribe();
   }
 }

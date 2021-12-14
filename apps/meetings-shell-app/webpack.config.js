@@ -20,11 +20,11 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      remotes: {
-        meetingsHeaderApp: 'meetingsHeaderApp@http://localhost:5100/meetingsHeaderApp.js',
-        meetingTemplatesApp: 'meetingTemplatesApp@http://localhost:5001/meetingTemplatesApp.js',
-        meetingScheduledApp: 'meetingScheduledApp@http://localhost:5002/meetingScheduledApp.js',
-      },
+      // remotes: {
+      //   meetingsHeaderApp: 'meetingsHeaderApp@http://localhost:5100/meetingsHeaderApp.js',
+      //   meetingTemplatesApp: 'meetingTemplatesApp@http://localhost:5001/meetingTemplatesApp.js',
+      //   meetingScheduledApp: 'meetingScheduledApp@http://localhost:5002/meetingScheduledApp.js',
+      // },
       shared: {
         ...getAngularMappings(),
         ...getInternalLibsMappings(),

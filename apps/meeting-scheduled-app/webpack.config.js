@@ -9,7 +9,6 @@ module.exports = {
   output: {
     uniqueName: 'meetingScheduledApp',
     publicPath: 'http://localhost:5002/',
-    devtoolNamespace: 'meetingScheduledApp',
   },
   optimization: {
     runtimeChunk: false,
@@ -18,7 +17,6 @@ module.exports = {
   plugins: [
     createDefinePluginConfig(),
     new ModuleFederationPlugin({
-      library: { type: 'var', name: 'meetingScheduledApp' },
       name: 'meetingScheduledApp',
       filename: 'meetingScheduledApp.js',
       exposes: {
