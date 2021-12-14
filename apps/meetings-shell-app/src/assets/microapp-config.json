@@ -3,7 +3,7 @@
     {
       "remoteEntry": "http://localhost:5001/meetingTemplatesApp.js",
       "remoteName": "meetingTemplatesApp",
-      "exposedModule": "MeetingTemplatesAppModule",
+      "exposedModule": "./MeetingTemplatesAppModule",
       "displayName": "Meeting Templates",
       "routePath": "meeting-templates",
       "ngModuleName": "MeetingTemplatesAppModule"
@@ -11,8 +11,8 @@
     {
       "remoteEntry": "http://localhost:5002/meetingScheduledApp.js",
       "remoteName": "meetingScheduledApp",
-      "exposedModule": "MeetingScheduledAppModule",
-      "displayName": "Meeting Scheduled",
+      "exposedModule": "./MeetingScheduledAppModule",
+      "displayName": "Scheduled Meetings",
       "routePath": "meeting-scheduled",
       "ngModuleName": "MeetingScheduledAppModule"
     }
@@ -21,7 +21,7 @@
     {
       "remoteEntry": "http://localhost:5100/meetingsHeaderApp.js",
       "remoteName": "meetingsHeaderApp",
-      "exposedModule": "MeetingsHeaderComponent"
+      "exposedModule": "./MeetingsHeaderComponent"
     }
   ]
 }

@@ -3,12 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
 import { Routes } from '@angular/router';
 
-import { ComponentHostComponent } from './directives/component-host.component';
+import { ComponentHostComponent } from './components/component-host.component';
 import {
   MICRO_APPS_CONFIGURATION_URL,
   MicrofrontendlyNgDynamicService,
 } from './services/microfrontendly-ng-dynamic.service';
-import { MicrofrontendlyNgStaticService } from './services/microfrontendly-ng-static.service';
 import { BASE_ROUTES, MICROFRONTENDLY_SERVICE, MicrofrontendlyNgService } from './services/microfrontendly-ng.service';
 
 export function initializeMicrofrontends(
@@ -44,7 +43,7 @@ export class MicrofrontendlyNg {
 
   static withDynamicConfiguration(
     microAppsConfigurationUrl: string,
-    baseRoutes: Routes = []
+    baseRoutes: Routes = [{ path: '' }]
   ): ModuleWithProviders<MicrofrontendlyNg> {
     return {
       ngModule: MicrofrontendlyNg,
@@ -55,16 +54,6 @@ export class MicrofrontendlyNg {
           useValue: microAppsConfigurationUrl,
         },
       ],
-    };
-  }
-
-  static withStaticConfiguration(
-    microAppsConfigurationUrl: string,
-    baseRoutes: Routes = []
-  ): ModuleWithProviders<MicrofrontendlyNg> {
-    return {
-      ngModule: MicrofrontendlyNg,
-      providers: this.createMicrofrontendlyProviders(MicrofrontendlyNgStaticService, baseRoutes),
     };
   }
 }

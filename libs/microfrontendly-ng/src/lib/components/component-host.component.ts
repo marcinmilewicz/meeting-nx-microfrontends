@@ -9,6 +9,8 @@ export class ComponentHostComponent<T> implements OnInit {
   @Input() remoteName!: string;
   @Input() moduleName!: string;
   @Input() componentName!: string;
+  @Input() properties!: { [property: string]: any };
+
   @ViewChild('componentHost', { read: ViewContainerRef, static: true })
   viewContainer!: ViewContainerRef;
 
@@ -26,7 +28,12 @@ export class ComponentHostComponent<T> implements OnInit {
       await this.microfrontendlyNgService.loadRemote<any>(this.remoteName, this.moduleName);
 
     this.viewContainer.clear();
+    const componentRef: ComponentRef<T> = this.viewContainer.createComponent<T>(remoteComponent);
 
-    return this.viewContainer.createComponent<T>(remoteComponent);
+    Object.keys(this.properties).forEach(
+      (propertyKey: string) => ((componentRef.instance as any)[propertyKey] = this.properties[propertyKey])
+    );
+
+    return componentRef;
   }
 }

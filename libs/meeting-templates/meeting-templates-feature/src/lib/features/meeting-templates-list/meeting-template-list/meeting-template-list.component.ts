@@ -19,9 +19,7 @@ export class MeetingTemplateListComponent {
   constructor(
     private meetingTemplatesRepository: MeetingTemplatesRepository,
     private meetingScheduledRepository: MeetingScheduledRepository
-  ) {
-    this.meetingScheduledRepository.getAll().subscribe((data) => console.log('all sched ', data));
-  }
+  ) {}
 
   scheduleMeeting({ id, ...template }: MeetingTemplate) {
     const scheduledMeeting: ScheduledMeetingBase = {
@@ -31,6 +29,6 @@ export class MeetingTemplateListComponent {
       endTime: Date.now().toString(),
     };
 
-    this.meetingScheduledRepository.create(scheduledMeeting).subscribe((data) => console.log('datasched ', data));
+    this.meetingScheduledRepository.create(scheduledMeeting).subscribe();
   }
 }

@@ -1,4 +1,4 @@
-const { ModuleFederationPlugin } = require('webpack').container;
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const {
   createDefinePluginConfig,
   getAngularMappings,
@@ -9,7 +9,6 @@ module.exports = {
   output: {
     uniqueName: 'meetingTemplatesApp',
     publicPath: 'http://localhost:5001/',
-    devtoolNamespace: 'meetingTemplatesApp',
   },
   devServer: {
     liveReload: true,
@@ -22,11 +21,12 @@ module.exports = {
   plugins: [
     createDefinePluginConfig(),
     new ModuleFederationPlugin({
-      library: { type: 'var', name: 'meetingTemplatesApp' },
+      // library: { type: 'var', name: 'meetingTemplatesApp' },
       name: 'meetingTemplatesApp',
       filename: 'meetingTemplatesApp.js',
       exposes: {
-        MeetingTemplatesAppModule: 'apps/meeting-templates-app/src/app/remote-entry/meeting-templates-app.module.ts',
+        './MeetingTemplatesAppModule':
+          './apps/meeting-templates-app/src/app/remote-entry/meeting-templates-app.module.ts',
       },
       shared: {
         ...getAngularMappings(),

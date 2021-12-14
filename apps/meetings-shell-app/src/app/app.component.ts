@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { AngularRemoteLazyModule, MICROFRONTENDLY_SERVICE, MicrofrontendlyNgService } from '@microfrontendly/ng';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'meetings-nx-microfrontends-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'meetings-shell-app';
+  modules$: Observable<AngularRemoteLazyModule[]> = this.microfrontendlyNgService.angularRemoteLazyModules$;
+
+  constructor(@Inject(MICROFRONTENDLY_SERVICE) private microfrontendlyNgService: MicrofrontendlyNgService) {}
 }

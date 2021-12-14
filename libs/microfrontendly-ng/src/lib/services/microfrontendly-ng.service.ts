@@ -1,5 +1,6 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { AngularRemoteLazyModule, RemoteConfiguration, RemoteModule } from '../model/microfrontendly-ng.model';
 import { loadRemoteModule } from '../model/microfrontendly-ng.utils';
 
@@ -14,6 +15,11 @@ const hashRemoteModule = ({ remoteName, exposedModule }: Omit<RemoteModule, 'rem
 @Injectable()
 export abstract class MicrofrontendlyNgService {
   private readonly remotes: Map<string, RemoteModule> = new Map();
+  private readonly angularRemoteLazyModulesSubject: Subject<AngularRemoteLazyModule[]> = new BehaviorSubject<
+    AngularRemoteLazyModule[]
+  >([]);
+  readonly angularRemoteLazyModules$: Observable<AngularRemoteLazyModule[]> =
+    this.angularRemoteLazyModulesSubject.asObservable();
 
   abstract initialize(configuration?: RemoteConfiguration): Promise<void> | void;
 
@@ -33,9 +39,10 @@ export abstract class MicrofrontendlyNgService {
     return loadRemoteModule(remoteModule);
   }
 
-  protected loadAndBuildAngularRoutes(modules: AngularRemoteLazyModule[]) {
-    const routes = buildRoutes(modules, this.baseRoutes, loadRemoteModule);
+  protected loadAndBuildAngularRoutes(angularRemoteLazyModule: AngularRemoteLazyModule[]) {
+    const routes = buildRoutes(angularRemoteLazyModule, this.baseRoutes, loadRemoteModule);
     this.router.resetConfig(routes);
+    this.angularRemoteLazyModulesSubject.next(angularRemoteLazyModule);
   }
 
   protected registerRemotes(modules: RemoteModule[]) {

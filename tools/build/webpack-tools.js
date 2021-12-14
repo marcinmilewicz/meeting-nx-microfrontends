@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-
+const deps = require('./../../package.json').dependencies;
 const getInternalLibsMappings = () => ({
   '@meetings-nx-microfrontends/shared/meetings-data-layer': {
     singleton: true,
@@ -14,19 +14,26 @@ const getInternalLibsMappings = () => ({
 const getAngularMappings = () => ({
   '@angular/animations': { singleton: true, strictVersion: true },
   '@angular/cdk': { singleton: true, strictVersion: true },
+  '@angular/cdk/coercion': { singleton: true, strictVersion: true },
   '@angular/common': { singleton: true, strictVersion: true },
   '@angular/common/http': { singleton: true, strictVersion: true },
   '@angular/core': { singleton: true, strictVersion: true },
   '@angular/fire': { singleton: true, strictVersion: true },
   '@angular/flex-layout': { singleton: true, strictVersion: true },
+  // '@angular/flex-layout/core': { singleton: true, strictVersion: true },
+  // '@angular/flex-layout/extended': { singleton: true, strictVersion: true },
+  // '@angular/flex-layout/flex': { singleton: true, strictVersion: true },
+  // '@angular/flex-layout/grid': { singleton: true, strictVersion: true },
   '@angular/forms': { singleton: true, strictVersion: true },
   '@angular/material': { singleton: true, strictVersion: true },
   '@angular/router': { singleton: true, strictVersion: true },
-  '@angular/fire/compat/firestore': { singleton: true, strictVersion: true },
-  '@angular/material/button': { singleton: true, strictVersion: true },
-  '@angular/material/card': { singleton: true, strictVersion: true },
-  '@angular/material/icon': { singleton: true, strictVersion: true },
-  '@angular/material/toolbar': { singleton: true, strictVersion: true },
+
+  // '@angular/fire/compat/firestore': { singleton: true, strictVersion: true },
+  // '@angular/material/button': { singleton: true, strictVersion: true },
+  // '@angular/material/card': { singleton: true, strictVersion: true },
+  // '@angular/material/icon': { singleton: true, strictVersion: true },
+  // '@angular/material/toolbar': { singleton: true, strictVersion: true },
+  tslib: { singleton: true, strictVersion: false },
   rxjs: { singleton: true, strictVersion: true },
 });
 

@@ -18,7 +18,7 @@
         "styles": ["apps/meeting-scheduled-app/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/meeting-scheduled-app/webpack.config.cjs"
+          "path": "apps/meeting-scheduled-app/webpack.config.js"
         }
       },
       "configurations": {

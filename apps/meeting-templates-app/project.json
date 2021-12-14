@@ -18,7 +18,7 @@
         "styles": ["apps/meeting-templates-app/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/meeting-templates-app/webpack.config.cjs"
+          "path": "apps/meeting-templates-app/webpack.config.js"
         }
       },
       "configurations": {

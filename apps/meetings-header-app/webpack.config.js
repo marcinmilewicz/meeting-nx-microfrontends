@@ -17,7 +17,7 @@ module.exports = {
       name: 'meetingsHeaderApp',
       filename: 'meetingsHeaderApp.js',
       exposes: {
-        MeetingsHeaderComponent: 'apps/meetings-header-app/src/app/header/meetings-header.component.ts',
+        './MeetingsHeaderComponent': './apps/meetings-header-app/src/app/header/meetings-header.component.ts',
       },
       shared: { ...getAngularMappings() },
     }),

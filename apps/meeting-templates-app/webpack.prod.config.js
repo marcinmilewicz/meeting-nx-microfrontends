@@ -1,1 +1,1 @@
-module.exports = require('./webpack.config.cjs');
+module.exports = require('./webpack.config.js');

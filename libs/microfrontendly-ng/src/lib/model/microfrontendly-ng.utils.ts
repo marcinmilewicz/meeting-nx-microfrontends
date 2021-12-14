@@ -48,7 +48,7 @@ async function lookupExposedModule<T>(remoteName: string, exposedModule: string)
   return factory() as T;
 }
 
-export async function loadRemoteModule<T>(module: RemoteModule): Promise<T> {
+export async function loadRemoteModule<T = any>(module: RemoteModule): Promise<T> {
   await loadRemoteEntry(module.remoteEntry);
 
   return await lookupExposedModule<T>(module.remoteName, module.exposedModule);

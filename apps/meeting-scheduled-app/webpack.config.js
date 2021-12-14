@@ -22,7 +22,8 @@ module.exports = {
       name: 'meetingScheduledApp',
       filename: 'meetingScheduledApp.js',
       exposes: {
-        MeetingScheduledAppModule: 'apps/meeting-scheduled-app/src/app/remote-entry/meeting-scheduled-app.module.ts',
+        './MeetingScheduledAppModule':
+          'apps/meeting-scheduled-app/src/app/remote-entry/meeting-scheduled-app.module.ts',
       },
       shared: {
         ...getAngularMappings(),
