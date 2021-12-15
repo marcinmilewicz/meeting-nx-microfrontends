@@ -1,8 +1,8 @@
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const {
   createDefinePluginConfig,
-  getAngularMappings,
-  getInternalLibsMappings,
+  createExternalLibsMappings,
+  createInternalLibsMappings,
 } = require('../../tools/build/webpack-tools');
 
 module.exports = {
@@ -18,11 +18,25 @@ module.exports = {
     runtimeChunk: false,
     minimize: false,
   },
+  experiments: {
+    outputModule: true,
+  },
   plugins: [
     new ModuleFederationPlugin({
+      library: { type: 'module' },
+      remotes: {
+        meetingsHeaderApp: 'meetingsHeaderApp@http://localhost:5100/meetingsHeaderApp.js',
+        meetingTemplatesApp: 'meetingTemplatesApp@http://localhost:5001/meetingTemplatesApp.js',
+        meetingScheduledApp: 'meetingScheduledApp@http://localhost:5002/meetingScheduledApp.js',
+      },
       shared: {
-        ...getAngularMappings(),
-        ...getInternalLibsMappings(),
+        ...createExternalLibsMappings(),
+        ...createInternalLibsMappings([
+          '@meetings-nx-microfrontends/shared/meetings-data-layer',
+          '@meetings-nx-microfrontends/shared/core',
+          '@meetings-nx-microfrontends/shared/ui',
+          '@microfrontendly/ng',
+        ]),
       },
     }),
     createDefinePluginConfig(),
