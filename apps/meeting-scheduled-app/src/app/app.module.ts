@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MeetingsDataLayerModule } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
-import { environment } from '../../../meeting-templates-app/src/environments/environment';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 

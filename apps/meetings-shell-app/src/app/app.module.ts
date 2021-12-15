@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MeetingsDataLayerModule } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
 import { MaterialSharedModule, UiModule } from '@meetings-nx-microfrontends/shared/ui';
-import { environment } from '../../../meeting-templates-app/src/environments/environment';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 

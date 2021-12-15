@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 import { MeetingsAppConfiguration } from './models/app-config';
 
 export const MEETING_SCHEDULED_COLLECTION = new InjectionToken<string>('data-providers.collection.scheduled');

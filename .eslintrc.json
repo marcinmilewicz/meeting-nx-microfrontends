@@ -13,8 +13,28 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:app", "type:lib"]
+              },
+              {
+                "sourceTag": "type:lib",
+                "onlyDependOnLibsWithTags": ["type:lib"]
+              },
+              {
+                "sourceTag": "lib:ui",
+                "onlyDependOnLibsWithTags": ["lib:ui", "lib:core"]
+              },
+              {
+                "sourceTag": "lib:core",
+                "onlyDependOnLibsWithTags": ["lib:core"]
+              },
+              {
+                "sourceTag": "lib:data",
+                "onlyDependOnLibsWithTags": ["lib:data", "lib:core"]
+              },
+              {
+                "sourceTag": "lib:feature",
+                "onlyDependOnLibsWithTags": ["lib:data", "lib:core", "lib:feature", "lib:ui"]
               }
             ]
           }
