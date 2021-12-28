@@ -1,7 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { MEETING_SCHEDULED_FEATURE_KEY, State, meetingScheduledAdapter } from './meeting-scheduled.reducer';
+import { MEETING_SCHEDULED_FEATURE_KEY, meetingScheduledAdapter, State } from './meeting-scheduled.reducer';
 
-// Lookup the 'MeetingScheduled' feature state managed by NgRx
 export const getMeetingScheduledState = createFeatureSelector<State>(MEETING_SCHEDULED_FEATURE_KEY);
 
 const { selectAll, selectEntities } = meetingScheduledAdapter.getSelectors();

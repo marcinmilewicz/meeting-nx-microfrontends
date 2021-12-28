@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { MeetingTemplateBase } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+import { MeetingTemplateBase } from '@meetings-nx-microfrontends/meeting-templates/meeting-templates-data-layer';
 
 @Component({
   selector: 'mt-meeting-template-card',

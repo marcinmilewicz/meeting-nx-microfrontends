@@ -5,6 +5,7 @@
     "meeting-scheduled-meeting-scheduled-data-layer": "libs/meeting-scheduled/meeting-scheduled-data-layer",
     "meeting-scheduled-meeting-scheduled-feature": "libs/meeting-scheduled/meeting-scheduled-feature",
     "meeting-templates-app": "apps/meeting-templates-app",
+    "meeting-templates-meeting-templates-data-layer": "libs/meeting-templates/meeting-templates-data-layer",
     "meeting-templates-meeting-templates-feature": "libs/meeting-templates/meeting-templates-feature",
     "meetings-header-app": "apps/meetings-header-app",
     "meetings-shell-app": "apps/meetings-shell-app",

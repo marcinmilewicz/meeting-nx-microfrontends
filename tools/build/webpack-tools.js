@@ -46,6 +46,9 @@ const createExternalLibsMappings = () =>
       '@angular/flex-layout/flex': { singleton: true, strictVersion: true },
       '@angular/flex-layout/grid': { singleton: true, strictVersion: true },
       tslib: { singleton: true, strictVersion: true },
+      '@ngrx/store': { singleton: true, strictVersion: true },
+      '@ngrx/effects': { singleton: true, strictVersion: true },
+      '@nrwl/angular': { singleton: true, strictVersion: true },
     },
     deps
   );

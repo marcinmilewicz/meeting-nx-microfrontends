@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ScheduledMeetingBase } from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
 import {
-  MeetingScheduledRepository,
+  MeetingScheduledFacade,
+  ScheduledMeetingBase,
+} from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
+import {
   MeetingTemplate,
-  MeetingTemplatesRepository,
-} from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+  MeetingTemplatesFacade,
+} from '@meetings-nx-microfrontends/meeting-templates/meeting-templates-data-layer';
+import { MeetingScheduledRepository } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
 import { from, Observable } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
 
@@ -16,13 +19,16 @@ import { switchMap, take } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MeetingTemplateListComponent {
-  readonly templates$: Observable<MeetingTemplate[]> = this.meetingTemplatesRepository.getAll();
+  readonly templates$: Observable<MeetingTemplate[]> = this.meetingTemplatesFacade.allMeetingTemplates$;
 
   constructor(
-    private meetingTemplatesRepository: MeetingTemplatesRepository,
+    private meetingTemplatesFacade: MeetingTemplatesFacade,
+    private meetingTSc: MeetingScheduledFacade,
     private meetingScheduledRepository: MeetingScheduledRepository,
     private router: Router
-  ) {}
+  ) {
+    this.meetingTemplatesFacade.init();
+  }
 
   scheduleMeeting({ id, ...template }: MeetingTemplate) {
     const scheduledMeeting: ScheduledMeetingBase = {

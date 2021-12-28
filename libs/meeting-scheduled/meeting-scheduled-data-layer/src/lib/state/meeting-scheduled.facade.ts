@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
 import * as MeetingScheduledActions from './meeting-scheduled.actions';
+import { ScheduledMeetingBase } from './meeting-scheduled.models';
 import * as MeetingScheduledSelectors from './meeting-scheduled.selectors';
 
 @Injectable()
@@ -14,5 +15,9 @@ export class MeetingScheduledFacade {
 
   init() {
     this.store.dispatch(MeetingScheduledActions.init());
+  }
+
+  scheduleMeeting(meeting: ScheduledMeetingBase) {
+    this.store.dispatch(MeetingScheduledActions.scheduleMeeting({ meeting }));
   }
 }
