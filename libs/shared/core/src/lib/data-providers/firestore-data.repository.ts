@@ -1,6 +1,7 @@
 import { Directive } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/compat/firestore';
-import { from, map, Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { WithId } from './data.model';
 import { ReactiveDataRepository } from './reactive-data.repository';
 

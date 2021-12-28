@@ -7,6 +7,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MeetingsDataLayerModule } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+import { EffectsModule } from '@ngrx/effects';
+import { routerReducer } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { DataPersistence } from '@nrwl/angular';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -15,6 +19,11 @@ import { AppComponent } from './app.component';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    MeetingsDataLayerModule.forRoot({
+      firebaseConfig: environment.firebaseConfig,
+      scheduledCollection: 'scheduled',
+      templatesCollection: 'templates',
+    }),
     RouterModule.forRoot([
       {
         path: '',
@@ -24,13 +33,7 @@ import { AppComponent } from './app.component';
           ),
       },
     ]),
-    MeetingsDataLayerModule.forRoot({
-      firebaseConfig: environment.firebaseConfig,
-      scheduledCollection: 'scheduled',
-      templatesCollection: 'templates',
-    }),
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

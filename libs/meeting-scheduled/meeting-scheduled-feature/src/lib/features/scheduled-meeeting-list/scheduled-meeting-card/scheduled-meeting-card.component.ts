@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ScheduledMeeting } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+import { ScheduledMeeting } from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
 
 @Component({
   selector: 'ms-scheduled-meeting-card',

@@ -1,7 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { WithId } from '@meetings-nx-microfrontends/shared/core';
-import { MeetingScheduledRepository, ScheduledMeeting } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
-import { map, Observable } from 'rxjs';
+import {
+  MeetingScheduledFacade,
+  ScheduledMeeting,
+} from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
+import { MeetingScheduledRepository } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'ms-scheduled-meeting-list',
@@ -10,14 +14,17 @@ import { map, Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScheduledMeetingListComponent {
-  readonly scheduledMeetings$: Observable<ScheduledMeeting[]> = this.meetingScheduledRepository
-    .getAll()
-    .pipe(
-      map((scheduledMeetings: WithId<ScheduledMeeting, string>[]) =>
-        scheduledMeetings.sort(({ startTime: first }, { startTime: second }) => parseInt(second) - parseInt(first))
-      )
-    );
-  constructor(private meetingScheduledRepository: MeetingScheduledRepository) {}
+  readonly scheduledMeetings$: Observable<ScheduledMeeting[]> = this.meetingScheduledFacade.allMeetingScheduled$.pipe(
+    map((scheduledMeetings: ScheduledMeeting[]) =>
+      scheduledMeetings.sort(({ startTime: first }, { startTime: second }) => parseInt(second) - parseInt(first))
+    )
+  );
+  constructor(
+    private meetingScheduledRepository: MeetingScheduledRepository,
+    private meetingScheduledFacade: MeetingScheduledFacade
+  ) {
+    this.meetingScheduledFacade.init();
+  }
 
   removeScheduledMeeting(id: string) {
     this.meetingScheduledRepository.delete(id).subscribe();

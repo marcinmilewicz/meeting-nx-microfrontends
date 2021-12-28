@@ -2,6 +2,7 @@
   "version": 2,
   "projects": {
     "meeting-scheduled-app": "apps/meeting-scheduled-app",
+    "meeting-scheduled-meeting-scheduled-data-layer": "libs/meeting-scheduled/meeting-scheduled-data-layer",
     "meeting-scheduled-meeting-scheduled-feature": "libs/meeting-scheduled/meeting-scheduled-feature",
     "meeting-templates-app": "apps/meeting-templates-app",
     "meeting-templates-meeting-templates-feature": "libs/meeting-templates/meeting-templates-feature",

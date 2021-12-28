@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/meeting-scheduled/meeting-scheduled-data-layer",
+  "sourceRoot": "libs/meeting-scheduled/meeting-scheduled-data-layer/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/meeting-scheduled/meeting-scheduled-data-layer"],
+      "options": {
+        "jestConfig": "libs/meeting-scheduled/meeting-scheduled-data-layer/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/meeting-scheduled/meeting-scheduled-data-layer/src/**/*.ts",
+          "libs/meeting-scheduled/meeting-scheduled-data-layer/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

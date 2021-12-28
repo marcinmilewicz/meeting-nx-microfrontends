@@ -1,16 +1,16 @@
 <header>
-  <!--  <microfrontendly-component-host-->
-  <!--    moduleName="./MeetingsHeaderComponent"-->
-  <!--    componentName="MeetingsHeaderComponent"-->
-  <!--    remoteName="meetingsHeaderApp"-->
-  <!--    [properties]="{ routes: modules$ | async }"-->
-  <!--  ></microfrontendly-component-host>-->
-  <static-component-host
-    remoteEntry="http://localhost:5100/meetingsHeaderApp.js"
+  <microfrontendly-component-host
+    moduleName="./MeetingsHeaderComponent"
     componentName="MeetingsHeaderComponent"
     remoteName="meetingsHeaderApp"
-    exposedModule="./MeetingsHeaderComponent"
-  ></static-component-host>
+    [properties]="{ routes: modules$ | async }"
+  ></microfrontendly-component-host>
+  <!--  <static-component-host-->
+  <!--    remoteEntry="http://localhost:5100/meetingsHeaderApp.js"-->
+  <!--    componentName="MeetingsHeaderComponent"-->
+  <!--    remoteName="meetingsHeaderApp"-->
+  <!--    exposedModule="./MeetingsHeaderComponent"-->
+  <!--  ></static-component-host>-->
 </header>
 <main>
   <router-outlet></router-outlet>
