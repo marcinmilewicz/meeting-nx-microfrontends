@@ -9,6 +9,5 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   modules$: Observable<AngularRemoteLazyModule[]> = this.microfrontendlyNgService.angularRemoteLazyModules$;
-
   constructor(@Inject(MICROFRONTENDLY_SERVICE) private microfrontendlyNgService: MicrofrontendlyNgService) {}
 }

@@ -6,4 +6,8 @@ import { MeetingTemplatesAppRoutingModule } from './meeting-templates-app-routin
   imports: [CommonModule, MeetingTemplatesAppRoutingModule],
   providers: [],
 })
-export class MeetingTemplatesAppModule {}
+export class MeetingTemplatesAppModule {
+  constructor() {
+    console.log('tutaj co jest');
+  }
+}

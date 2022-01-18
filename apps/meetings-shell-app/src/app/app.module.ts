@@ -1,30 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MeetingsDataLayerModule } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
-import { MaterialSharedModule, UiModule } from '@meetings-nx-microfrontends/shared/ui';
-import { ReducerManager } from '@ngrx/store';
+import { PersistanceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
+import { CoreModule, FirebaseConnectorModule } from '@meetings-nx-microfrontends/shared/core';
+import { MaterialSharedModule } from '@meetings-nx-microfrontends/shared/ui';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BootstrapComponent } from './bootstrap.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [BootstrapComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MeetingsDataLayerModule.forRoot({
-      firebaseConfig: environment.firebaseConfig,
-      scheduledCollection: environment.scheduledCollection,
-      templatesCollection: environment.templatesCollection,
-    }),
+    CoreModule,
+    FirebaseConnectorModule.forRoot(environment),
+    PersistanceModule.forRoot(environment.production),
     MaterialSharedModule,
-    UiModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [BootstrapComponent],
 })
-export class AppModule {
-  constructor(red: ReducerManager) {
-    console.log('app ', red);
-  }
-}
+export class AppModule {}

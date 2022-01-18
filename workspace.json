@@ -1,6 +1,8 @@
 {
   "version": 2,
   "projects": {
+    "authentication-authentication-data-layer": "libs/authentication/authentication-data-layer",
+    "authentication-authentication-feature": "libs/authentication/authentication-feature",
     "meeting-scheduled-app": "apps/meeting-scheduled-app",
     "meeting-scheduled-meeting-scheduled-data-layer": "libs/meeting-scheduled/meeting-scheduled-data-layer",
     "meeting-scheduled-meeting-scheduled-feature": "libs/meeting-scheduled/meeting-scheduled-feature",
@@ -11,7 +13,7 @@
     "meetings-shell-app": "apps/meetings-shell-app",
     "microfrontendly-ng": "libs/microfrontendly-ng",
     "shared-core": "libs/shared/core",
-    "shared-meetings-data-layer": "libs/shared/meetings-data-layer",
+    "shared-shared-data-layer": "libs/shared/shared-data-layer",
     "shared-ui": "libs/shared/ui"
   }
 }

@@ -1,3 +1,7 @@
+import { Routes } from '@angular/router';
+
+export type RoutesFactory = (dynamicRoutes: Routes) => Routes;
+
 export type AngularRoute = {
   displayName: string;
   routePath: string;

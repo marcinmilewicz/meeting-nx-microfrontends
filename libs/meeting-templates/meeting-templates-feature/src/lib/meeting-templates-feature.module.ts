@@ -16,4 +16,8 @@ import { MeetingTemplatesFeatureRoutingModule } from './meeting-templates-featur
   ],
   declarations: [MeetingTemplatesComponent],
 })
-export class MeetingTemplatesFeatureModule {}
+export class MeetingTemplatesFeatureModule {
+  constructor() {
+    console.log('feature');
+  }
+}

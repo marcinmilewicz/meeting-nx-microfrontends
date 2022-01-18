@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'meeting-templates-app';
+
+  // constructor(a: AuthService) {
+  //   console.log(a);
+  // }
 }

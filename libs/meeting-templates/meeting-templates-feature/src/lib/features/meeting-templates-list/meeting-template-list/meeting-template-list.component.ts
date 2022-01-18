@@ -8,9 +8,10 @@ import {
   MeetingTemplate,
   MeetingTemplatesFacade,
 } from '@meetings-nx-microfrontends/meeting-templates/meeting-templates-data-layer';
-import { MeetingScheduledRepository } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+
 import { from, Observable } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
+import { MeetingScheduledRepository } from '../../../../../../../meeting-scheduled/meeting-scheduled-data-layer/src/lib/meeting-scheduled.repository';
 
 @Component({
   selector: 'mt-meeting-template-list',
@@ -28,6 +29,7 @@ export class MeetingTemplateListComponent {
     private router: Router
   ) {
     this.meetingTemplatesFacade.init();
+    console.log('init');
   }
 
   scheduleMeeting({ id, ...template }: MeetingTemplate) {

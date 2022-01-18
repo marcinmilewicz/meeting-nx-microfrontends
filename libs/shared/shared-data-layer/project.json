@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/shared-data-layer",
+  "sourceRoot": "libs/shared/shared-data-layer/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/shared/shared-data-layer"],
+      "options": {
+        "jestConfig": "libs/shared/shared-data-layer/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/shared-data-layer/src/**/*.ts", "libs/shared/shared-data-layer/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["type:lib", "lib:data"]
+}

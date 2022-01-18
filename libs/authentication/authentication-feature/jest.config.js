@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-meetings-data-layer',
+  displayName: 'authentication-authentication-feature',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/shared/meetings-data-layer',
+  coverageDirectory: '../../../coverage/libs/authentication/authentication-feature',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

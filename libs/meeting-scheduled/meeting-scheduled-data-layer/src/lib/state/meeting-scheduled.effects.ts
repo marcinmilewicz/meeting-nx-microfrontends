@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { MeetingScheduledRepository } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+
 import { Actions, createEffect } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 import { map } from 'rxjs/operators';
+import { MeetingScheduledRepository } from '../meeting-scheduled.repository';
 
 import * as MeetingScheduledActions from './meeting-scheduled.actions';
 import * as MeetingScheduledFeature from './meeting-scheduled.reducer';
@@ -11,7 +12,7 @@ import * as MeetingScheduledFeature from './meeting-scheduled.reducer';
 export class MeetingScheduledEffects {
   init$ = createEffect(() =>
     this.dataPersistence.fetch(MeetingScheduledActions.init, {
-      run: (action: ReturnType<typeof MeetingScheduledActions.init>) =>
+      run: () =>
         this.meetingScheduledRepository
           .getAll()
           .pipe(map((meetingScheduled) => MeetingScheduledActions.loadMeetingScheduledSuccess({ meetingScheduled }))),

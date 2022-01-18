@@ -3,9 +3,10 @@ import {
   MeetingScheduledFacade,
   ScheduledMeeting,
 } from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
-import { MeetingScheduledRepository } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MeetingScheduledRepository } from '../../../../../../meeting-scheduled-data-layer/src/lib/meeting-scheduled.repository';
 
 @Component({
   selector: 'ms-scheduled-meeting-list',

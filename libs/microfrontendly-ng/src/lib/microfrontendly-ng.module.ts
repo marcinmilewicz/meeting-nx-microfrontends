@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule, Provider, Type } from '@angular/core';
-import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { ComponentHostComponent } from './components/component-host.component';
+import { RoutesFactory } from './model/microfrontendly-ng.model';
 import {
   MICRO_APPS_CONFIGURATION_URL,
   MicrofrontendlyNgDynamicService,
@@ -17,20 +18,20 @@ export function initializeMicrofrontends(
 }
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule, RouterModule.forRoot([])],
   declarations: [ComponentHostComponent],
-  exports: [ComponentHostComponent],
+  exports: [ComponentHostComponent, RouterModule],
 })
-export class MicrofrontendlyNg {
+export class MicrofrontendlyRouter {
   private static createMicrofrontendlyProviders(
     service: Type<MicrofrontendlyNgService>,
-    baseRoutes: Routes
+    routesFactory: RoutesFactory
   ): Provider[] {
     return [
       { provide: MICROFRONTENDLY_SERVICE, useClass: service },
       {
         provide: BASE_ROUTES,
-        useValue: baseRoutes,
+        useValue: routesFactory,
       },
       {
         provide: APP_INITIALIZER,
@@ -43,12 +44,12 @@ export class MicrofrontendlyNg {
 
   static withDynamicConfiguration(
     microAppsConfigurationUrl: string,
-    baseRoutes: Routes = [{ path: '' }]
-  ): ModuleWithProviders<MicrofrontendlyNg> {
+    routesFactory: RoutesFactory = () => []
+  ): ModuleWithProviders<MicrofrontendlyRouter> {
     return {
-      ngModule: MicrofrontendlyNg,
+      ngModule: MicrofrontendlyRouter,
       providers: [
-        ...this.createMicrofrontendlyProviders(MicrofrontendlyNgDynamicService, baseRoutes),
+        ...this.createMicrofrontendlyProviders(MicrofrontendlyNgDynamicService, routesFactory),
         {
           provide: MICRO_APPS_CONFIGURATION_URL,
           useValue: microAppsConfigurationUrl,

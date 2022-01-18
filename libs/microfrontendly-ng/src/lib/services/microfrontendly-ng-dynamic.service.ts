@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { RemoteConfiguration } from '../model/microfrontendly-ng.model';
+import { RemoteConfiguration, RoutesFactory } from '../model/microfrontendly-ng.model';
 import { BASE_ROUTES, MicrofrontendlyNgService } from './microfrontendly-ng.service';
 
 export const MICRO_APPS_CONFIGURATION_URL = new InjectionToken<string>('configurationUrl');
@@ -11,12 +11,12 @@ export const MICRO_APPS_CONFIGURATION_URL = new InjectionToken<string>('configur
 @Injectable()
 export class MicrofrontendlyNgDynamicService extends MicrofrontendlyNgService {
   constructor(
-    @Inject(BASE_ROUTES) protected baseRoutes: Routes,
+    @Inject(BASE_ROUTES) protected routesFactory: RoutesFactory,
     @Inject(MICRO_APPS_CONFIGURATION_URL) protected configurationUrl: string,
     protected router: Router,
     private httpClient: HttpClient
   ) {
-    super(baseRoutes, router);
+    super(routesFactory, router);
   }
 
   async initialize(): Promise<void> {

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MicrofrontendlyNg } from '@microfrontendly/ng';
-import { initialRoutes, staticRoutes } from './routes';
+import { UiModule } from '@meetings-nx-microfrontends/shared/ui';
+import { MicrofrontendlyRouter } from '@microfrontendly/ng';
+import { AppComponent } from './app.component';
+import { routesFactory } from './routes';
+
+const MICRO_APPS_CONFIG_URL: string = './assets/microapp-config.json';
 
 @NgModule({
-  imports: [
-    MicrofrontendlyNg.withDynamicConfiguration('./assets/microapp-config.json', initialRoutes),
-    RouterModule.forRoot(staticRoutes),
-  ],
-  exports: [RouterModule, MicrofrontendlyNg],
+  declarations: [AppComponent],
+  imports: [MicrofrontendlyRouter.withDynamicConfiguration(MICRO_APPS_CONFIG_URL, routesFactory), UiModule],
+  exports: [RouterModule, MicrofrontendlyRouter],
 })
 export class AppRoutingModule {}

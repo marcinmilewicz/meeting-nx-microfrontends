@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { AngularRemoteLazyModule, RemoteModule } from './model/microfrontendly-ng.model';
+import { AngularRemoteLazyModule, RemoteModule, RoutesFactory } from './model/microfrontendly-ng.model';
 
 export function buildRoutes(
   angularRemoteModules: AngularRemoteLazyModule[],
-  baseRoutes: Routes,
+  routesFactory: RoutesFactory,
   moduleLoader: (module: RemoteModule) => Promise<any>
 ): Routes {
   const lazyRoutes: Routes = angularRemoteModules.map((module: AngularRemoteLazyModule) => ({
@@ -11,5 +11,5 @@ export function buildRoutes(
     loadChildren: () => moduleLoader(module).then((m) => m[module.ngModuleName]),
   }));
 
-  return [...baseRoutes, ...lazyRoutes];
+  return routesFactory(lazyRoutes);
 }

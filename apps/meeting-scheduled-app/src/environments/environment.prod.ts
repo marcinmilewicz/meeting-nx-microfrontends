@@ -1,4 +1,4 @@
-import { MeetingsAppConfiguration } from '@meetings-nx-microfrontends/shared/meetings-data-layer';
+import { MeetingsAppConfiguration } from '@meetings-nx-microfrontends/shared/core';
 
 export const environment: MeetingsAppConfiguration = {
   production: true,

@@ -1,12 +1,17 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { AngularRemoteLazyModule, RemoteConfiguration, RemoteModule } from '../model/microfrontendly-ng.model';
+import {
+  AngularRemoteLazyModule,
+  RemoteConfiguration,
+  RemoteModule,
+  RoutesFactory,
+} from '../model/microfrontendly-ng.model';
 import { loadRemoteModule } from '../model/microfrontendly-ng.utils';
 
 import { buildRoutes } from '../route-utils';
 
-export const BASE_ROUTES = new InjectionToken<Routes>('baseRoutes');
+export const BASE_ROUTES = new InjectionToken<RoutesFactory>('routesFactory');
 export const MICROFRONTENDLY_SERVICE = new InjectionToken<MicrofrontendlyNgService>('microfrontendlyService');
 
 const hashRemoteModule = ({ remoteName, exposedModule }: Omit<RemoteModule, 'remoteEntry'>): string =>
@@ -23,7 +28,7 @@ export abstract class MicrofrontendlyNgService {
 
   abstract initialize(configuration?: RemoteConfiguration): Promise<void> | void;
 
-  protected constructor(@Inject(BASE_ROUTES) protected baseRoutes: Routes, protected router: Router) {}
+  protected constructor(@Inject(BASE_ROUTES) protected routesFactory: RoutesFactory, protected router: Router) {}
 
   async loadRemote<T>(remoteName: string, exposedModule: string): Promise<T> {
     const remoteModuleKey: string = hashRemoteModule({
@@ -40,7 +45,7 @@ export abstract class MicrofrontendlyNgService {
   }
 
   protected loadAndBuildAngularRoutes(angularRemoteLazyModule: AngularRemoteLazyModule[]) {
-    const routes = buildRoutes(angularRemoteLazyModule, this.baseRoutes, loadRemoteModule);
+    const routes = buildRoutes(angularRemoteLazyModule, this.routesFactory, loadRemoteModule);
     this.router.resetConfig(routes);
     this.angularRemoteLazyModulesSubject.next(angularRemoteLazyModule);
   }
