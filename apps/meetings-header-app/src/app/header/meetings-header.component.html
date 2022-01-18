@@ -1,18 +1,24 @@
-<mat-toolbar color="primary" class="mat-elevation-z1">
-  <button
-    *ngFor="let route of currentRoutes"
-    mat-button
-    [routerLink]="route.routePath"
-    routerLinkActive
-    #rla="routerLinkActive"
-    [ngClass]="{ active: rla.isActive }"
-  >
-    <mat-icon>event_note</mat-icon>
-    <!--    <mat-icon>{{button.iconName}}</mat-icon>-->
-    {{ route.displayName }}
-  </button>
+<mat-toolbar color="primary" class="mat-elevation-z1" fxLayoutAlign="space-between center">
+  <nav>
+    <button
+      *ngFor="let route of currentRoutes"
+      mat-button
+      [routerLink]="route.routePath"
+      routerLinkActive
+      #rla="routerLinkActive"
+      [ngClass]="{ active: rla.isActive }"
+    >
+      <mat-icon>event_note</mat-icon>
+      <!--    <mat-icon>{{button.iconName}}</mat-icon>-->
+      {{ route.displayName }}
+    </button>
+  </nav>
 
-  <span fxFlex></span>
+  <span fxFlexAlign="start-end center">
+    <button mat-button (click)="openGithub()"><mat-icon>code</mat-icon> Github</button>
+    <button mat-button (click)="logout()"><mat-icon>logout</mat-icon> Logout</button>
+  </span>
+
   <!--  <button mat-icon-button [matMenuTriggerFor]="overflowMenu" class="overflowMenu"-->
   <!--          *ngIf="overflowMenuItems.length">-->
   <!--    <mat-icon>more_vert</mat-icon>-->

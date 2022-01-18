@@ -13,7 +13,7 @@ export const initialRoute: Route = {
 export const staticRoutes = [
   {
     path: '',
-    ...canActivate(() => redirectUnauthorizedTo(['login'])),
+    ...canActivate(() => redirectUnauthorizedTo(['auth/login'])),
     component: AppComponent,
     children: [
       initialRoute,
@@ -38,7 +38,7 @@ export const staticRoutes = [
     ],
   },
   {
-    path: 'login',
+    path: 'auth',
     ...canActivate(createAuthorizedRedirection('')),
     loadChildren: () =>
       import('@meetings-nx-microfrontends/authentication/authentication-feature').then(
@@ -50,12 +50,12 @@ export const staticRoutes = [
 export const routesFactory: RoutesFactory = (dynamicRoutes: Routes) => [
   {
     path: '',
-    ...canActivate(() => redirectUnauthorizedTo(['login'])),
+    ...canActivate(() => redirectUnauthorizedTo('auth/login')),
     component: AppComponent,
     children: [initialRoute, ...dynamicRoutes],
   },
   {
-    path: 'login',
+    path: 'auth',
     ...canActivate(createAuthorizedRedirection('')),
     loadChildren: () =>
       import('@meetings-nx-microfrontends/authentication/authentication-feature').then(
