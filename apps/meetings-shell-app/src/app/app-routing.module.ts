@@ -5,7 +5,7 @@ import { MicrofrontendlyRouter } from '@microfrontendly/ng';
 import { AppComponent } from './app.component';
 import { routesFactory } from './routes';
 
-const MICRO_APPS_CONFIG_URL: string = './assets/microapp-config.json';
+const MICRO_APPS_CONFIG_URL = './assets/microapp-config.json';
 
 @NgModule({
   declarations: [AppComponent],

@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   MeetingScheduledFacade,
+  MeetingScheduledRepository,
   ScheduledMeeting,
 } from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MeetingScheduledRepository } from '../../../../../../meeting-scheduled-data-layer/src/lib/meeting-scheduled.repository';
 
 @Component({
   selector: 'ms-scheduled-meeting-list',

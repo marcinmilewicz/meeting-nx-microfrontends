@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   MeetingScheduledFacade,
+  MeetingScheduledRepository,
   ScheduledMeetingBase,
 } from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
 import {
@@ -11,7 +12,6 @@ import {
 
 import { from, Observable } from 'rxjs';
 import { switchMap, take } from 'rxjs/operators';
-import { MeetingScheduledRepository } from '../../../../../../../meeting-scheduled/meeting-scheduled-data-layer/src/lib/meeting-scheduled.repository';
 
 @Component({
   selector: 'mt-meeting-template-list',

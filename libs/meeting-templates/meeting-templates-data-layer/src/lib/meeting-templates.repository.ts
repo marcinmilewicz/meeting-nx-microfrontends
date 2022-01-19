@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-import { MeetingTemplateBase } from '@meetings-nx-microfrontends/meeting-templates/meeting-templates-data-layer';
 import { FirestoreDataRepository } from '@meetings-nx-microfrontends/shared-shared-data-layer';
+import { MeetingTemplateBase } from './state/meeting-templates.models';
 
-const MEETING_TEMPLATES_COLLECTION: string = 'templates';
+const MEETING_TEMPLATES_COLLECTION = 'templates';
 
 @Injectable({ providedIn: 'root' })
 export class MeetingTemplatesRepository extends FirestoreDataRepository<MeetingTemplateBase> {
