@@ -1,3 +1,3 @@
-export type WithId<Type, K extends string | number> = Type & {
-  [T in K]: string;
+export type WithId<Type, IDKey extends string, IDType = string> = Type & {
+  [T in IDKey]: IDType;
 };

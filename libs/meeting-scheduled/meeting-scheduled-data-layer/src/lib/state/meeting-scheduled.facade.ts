@@ -5,7 +5,7 @@ import * as MeetingScheduledActions from './meeting-scheduled.actions';
 import { ScheduledMeetingBase } from './meeting-scheduled.models';
 import * as MeetingScheduledSelectors from './meeting-scheduled.selectors';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class MeetingScheduledFacade {
   loaded$ = this.store.pipe(select(MeetingScheduledSelectors.getMeetingScheduledLoaded));
   allMeetingScheduled$ = this.store.pipe(select(MeetingScheduledSelectors.getAllMeetingScheduled));

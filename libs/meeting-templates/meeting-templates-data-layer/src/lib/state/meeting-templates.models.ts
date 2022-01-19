@@ -6,4 +6,4 @@ export interface MeetingTemplateBase {
   imageUrl: string;
 }
 
-export type MeetingTemplate = WithId<MeetingTemplateBase, string>;
+export type MeetingTemplate = WithId<MeetingTemplateBase, 'id'>;

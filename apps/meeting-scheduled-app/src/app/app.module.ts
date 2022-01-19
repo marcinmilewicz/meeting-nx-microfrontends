@@ -8,7 +8,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { createAuthorizedRedirection } from '@meetings-nx-microfrontends/authentication/authentication-data-layer';
-import { PersistanceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
+import { PersistenceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
 import { CoreModule, FirebaseConnectorModule } from '@meetings-nx-microfrontends/shared/core';
 import { environment } from '../environments/environment';
 
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     CoreModule,
     FirebaseConnectorModule.forRoot(environment),
-    PersistanceModule.forRoot(environment.production),
+    PersistenceModule.forRoot(environment.production),
     RouterModule.forRoot([
       {
         path: '',

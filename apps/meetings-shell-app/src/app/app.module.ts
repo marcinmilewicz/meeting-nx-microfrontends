@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PersistanceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
+import { PersistenceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
 import { CoreModule, FirebaseConnectorModule } from '@meetings-nx-microfrontends/shared/core';
 import { MaterialSharedModule } from '@meetings-nx-microfrontends/shared/ui';
 import { environment } from '../environments/environment';
@@ -14,7 +14,8 @@ import { BootstrapComponent } from './bootstrap.component';
     AppRoutingModule,
     CoreModule,
     FirebaseConnectorModule.forRoot(environment),
-    PersistanceModule.forRoot(environment.production),
+    PersistenceModule.forRoot(environment.production),
+
     MaterialSharedModule,
   ],
   providers: [],

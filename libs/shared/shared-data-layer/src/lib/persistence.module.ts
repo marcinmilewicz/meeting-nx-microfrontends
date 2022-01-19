@@ -14,14 +14,14 @@ import { DataPersistence } from '@nrwl/angular';
     EffectsModule.forRoot(),
   ],
 })
-export class PersistanceModule {
-  static forRoot(production?: boolean): ModuleWithProviders<PersistanceModule> {
+export class PersistenceModule {
+  static forRoot(production?: boolean): ModuleWithProviders<PersistenceModule> {
     const storeDevToolsProviders: Provider[] | undefined = !production
       ? StoreDevtoolsModule.instrument().providers
       : [];
 
     return {
-      ngModule: PersistanceModule,
+      ngModule: PersistenceModule,
       providers: [...(storeDevToolsProviders || []), DataPersistence],
     };
   }
