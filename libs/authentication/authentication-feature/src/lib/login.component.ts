@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@meetings-nx-microfrontends/authentication/authentication-data-layer';
+import { AuthService } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 
 @Component({
   selector: 'meetings-nx-microfrontends-login',

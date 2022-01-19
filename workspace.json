@@ -1,7 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "authentication-authentication-data-layer": "libs/authentication/authentication-data-layer",
+    "authentication-authentication-core-layer": "libs/authentication/authentication-core-layer",
     "authentication-authentication-feature": "libs/authentication/authentication-feature",
     "meeting-scheduled-app": "apps/meeting-scheduled-app",
     "meeting-scheduled-meeting-scheduled-data-layer": "libs/meeting-scheduled/meeting-scheduled-data-layer",

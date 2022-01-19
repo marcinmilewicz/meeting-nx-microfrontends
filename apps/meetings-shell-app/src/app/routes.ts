@@ -1,6 +1,6 @@
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { Route, Routes } from '@angular/router';
-import { createAuthorizedRedirection } from '@meetings-nx-microfrontends/authentication/authentication-data-layer';
+import { createAuthorizedRedirection } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 import { loadRemoteModule, RoutesFactory } from '@microfrontendly/ng';
 import { AppComponent } from './app.component';
 

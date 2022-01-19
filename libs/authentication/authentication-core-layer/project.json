@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/authentication/authentication-core-layer",
+  "sourceRoot": "libs/authentication/authentication-core-layer/src",
+  "prefix": "meetings-nx-microfrontends",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/authentication/authentication-core-layer"],
+      "options": {
+        "jestConfig": "libs/authentication/authentication-core-layer/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/authentication/authentication-core-layer/src/**/*.ts",
+          "libs/authentication/authentication-core-layer/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["type:lib", "lib:core"]
+}

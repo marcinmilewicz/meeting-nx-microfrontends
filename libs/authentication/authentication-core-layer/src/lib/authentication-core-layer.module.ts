@@ -6,4 +6,4 @@ import { AuthService } from './auth.service';
   imports: [CommonModule],
   providers: [AuthService],
 })
-export class AuthenticationDataLayerModule {}
+export class AuthenticationCoreLayerModule {}

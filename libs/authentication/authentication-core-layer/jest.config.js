@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'authentication-authentication-data-layer',
+  displayName: 'authentication-authentication-core-layer',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../../coverage/libs/authentication/authentication-data-layer',
+  coverageDirectory: '../../../coverage/libs/authentication/authentication-core-layer',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

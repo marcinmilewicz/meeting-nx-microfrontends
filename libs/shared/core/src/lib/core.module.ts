@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AuthenticationDataLayerModule } from '@meetings-nx-microfrontends/authentication/authentication-data-layer';
+import { AuthenticationCoreLayerModule } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 
 @NgModule({
-  imports: [CommonModule, AuthenticationDataLayerModule],
+  imports: [CommonModule, AuthenticationCoreLayerModule],
 })
 export class CoreModule {}

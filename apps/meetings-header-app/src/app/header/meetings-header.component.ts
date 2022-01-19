@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '@meetings-nx-microfrontends/authentication/authentication-data-layer';
+import { AuthService } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 import { AngularRoute } from '@microfrontendly/ng';
 
 const ROUTES = [

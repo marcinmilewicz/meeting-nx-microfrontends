@@ -16,8 +16,8 @@
     "baseUrl": ".",
     "types": ["node"],
     "paths": {
-      "@meetings-nx-microfrontends/authentication/authentication-data-layer": [
-        "libs/authentication/authentication-data-layer/src/index.ts"
+      "@meetings-nx-microfrontends/authentication-authentication-core-layer": [
+        "libs/authentication/authentication-core-layer/src/index.ts"
       ],
       "@meetings-nx-microfrontends/authentication/authentication-feature": [
         "libs/authentication/authentication-feature/src/index.ts"

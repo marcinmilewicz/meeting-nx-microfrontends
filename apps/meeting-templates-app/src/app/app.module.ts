@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { createAuthorizedRedirection } from '@meetings-nx-microfrontends/authentication/authentication-data-layer';
+import { createAuthorizedRedirection } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 import { AuthenticationFeatureModule } from '@meetings-nx-microfrontends/authentication/authentication-feature';
 import { PersistenceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
 import { CoreModule, FirebaseConnectorModule } from '@meetings-nx-microfrontends/shared/core';
