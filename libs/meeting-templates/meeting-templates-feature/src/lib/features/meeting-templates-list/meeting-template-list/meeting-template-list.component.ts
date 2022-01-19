@@ -29,7 +29,6 @@ export class MeetingTemplateListComponent {
     private router: Router
   ) {
     this.meetingTemplatesFacade.init();
-    console.log('init');
   }
 
   scheduleMeeting({ id, ...template }: MeetingTemplate) {

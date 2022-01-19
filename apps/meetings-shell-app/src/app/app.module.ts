@@ -15,7 +15,6 @@ import { BootstrapComponent } from './bootstrap.component';
     CoreModule,
     FirebaseConnectorModule.forRoot(environment),
     PersistenceModule.forRoot(environment.production),
-
     MaterialSharedModule,
   ],
   providers: [],

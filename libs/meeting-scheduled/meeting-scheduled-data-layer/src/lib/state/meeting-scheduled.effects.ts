@@ -25,9 +25,7 @@ export class MeetingScheduledEffects {
 
   scheduleMeeting$ = createEffect(() =>
     this.actions$.pipe(
-      tap((data) => console.log(' ', data)),
       ofType(MeetingScheduledActions.scheduleMeeting),
-      tap((data) => console.log('akcja meet', data)),
       mergeMap(({ meeting }: { meeting: ScheduledMeetingBase }) =>
         this.meetingScheduledRepository
           .create(meeting)

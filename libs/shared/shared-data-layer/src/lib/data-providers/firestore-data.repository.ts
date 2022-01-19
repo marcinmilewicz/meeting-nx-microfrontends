@@ -1,8 +1,17 @@
 import { Directive } from '@angular/core';
-import { addDoc, collection, collectionData, deleteDoc, doc, docData, Firestore } from '@angular/fire/firestore';
+import {
+  addDoc,
+  collection,
+  collectionData,
+  deleteDoc,
+  doc,
+  docData,
+  DocumentReference,
+  Firestore,
+} from '@angular/fire/firestore';
 import { QueryDocumentSnapshot } from '@firebase/firestore';
 import { from, Observable } from 'rxjs';
-import { map, take, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { WithId } from './data.model';
 import { ReactiveDataRepository } from './reactive-data.repository';
 
@@ -28,14 +37,10 @@ export abstract class FirestoreDataRepository<Type> implements ReactiveDataRepos
   }
 
   create(item: Type): Observable<string> {
-    return from(addDoc<Type>(this.collection, item)).pipe(
-      tap((data) => console.log('verify', data)),
-      map((item) => item.id),
-      take(1)
-    );
+    return from(addDoc<Type>(this.collection, item)).pipe(map((item: DocumentReference<Type>) => item.id));
   }
 
   delete(id: string): Observable<void> {
-    return from(deleteDoc(doc(this.collection, id))).pipe(take(1));
+    return from(deleteDoc(doc(this.collection, id)));
   }
 }

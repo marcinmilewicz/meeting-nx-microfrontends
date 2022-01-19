@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MeetingTemplatesEffects } from './state/meeting-templates.effects';
@@ -14,4 +14,10 @@ import * as fromMeetingTemplates from './state/meeting-templates.reducer';
   ],
   providers: [MeetingTemplatesFacade],
 })
-export class MeetingTemplatesDataLayerModule {}
+export class MeetingTemplatesDataLayerModule {
+  constructor(@Optional() @SkipSelf() parentModule?: MeetingTemplatesDataLayerModule) {
+    if (parentModule) {
+      throw new Error('MeetingTemplatesDataLayerModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}

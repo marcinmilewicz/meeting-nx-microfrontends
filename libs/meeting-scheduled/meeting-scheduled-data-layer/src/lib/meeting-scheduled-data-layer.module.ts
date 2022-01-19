@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { MeetingScheduledEffects } from './state/meeting-scheduled.effects';
@@ -14,4 +14,10 @@ import * as fromMeetingScheduled from './state/meeting-scheduled.reducer';
   ],
   providers: [MeetingScheduledFacade],
 })
-export class MeetingScheduledDataLayerModule {}
+export class MeetingScheduledDataLayerModule {
+  constructor(@Optional() @SkipSelf() parentModule?: MeetingScheduledDataLayerModule) {
+    if (parentModule) {
+      throw new Error('MeetingScheduledDataLayerModule is already loaded. Import it in the AppModule only');
+    }
+  }
+}
