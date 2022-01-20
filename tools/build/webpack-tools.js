@@ -80,9 +80,3 @@ module.exports = {
   createExternalLibsMappings,
   createInternalLibsMappings,
 };
-
-// '@angular/fire/compat/firestore': { singleton: true, strictVersion: true },
-// '@angular/material/button': { singleton: true, strictVersion: true },
-// '@angular/material/card': { singleton: true, strictVersion: true },
-// '@angular/material/icon': { singleton: true, strictVersion: true },
-// '@angular/material/toolbar': { singleton: true, strictVersion: true },
