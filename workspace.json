@@ -13,7 +13,7 @@
     "meetings-shell-app": "apps/meetings-shell-app",
     "microfrontendly-ng": "libs/microfrontendly-ng",
     "shared-core": "libs/shared/core",
-    "shared-shared-data-layer": "libs/shared/shared-data-layer",
+    "shared-data-layer": "libs/shared/shared-data-layer",
     "shared-ui": "libs/shared/ui"
   }
 }

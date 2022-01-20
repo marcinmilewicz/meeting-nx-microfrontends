@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'shared-shared-data-layer',
+  displayName: 'shared-data-layer',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {

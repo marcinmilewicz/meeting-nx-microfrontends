@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { createAuthorizedRedirection } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 import { AuthenticationFeatureModule } from '@meetings-nx-microfrontends/authentication/authentication-feature';
-import { PersistenceModule } from '@meetings-nx-microfrontends/shared-shared-data-layer';
+import { PersistenceModule } from '@meetings-nx-microfrontends/shared/shared-data-layer';
 import { CoreModule, FirebaseConnectorModule } from '@meetings-nx-microfrontends/shared/core';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';

@@ -3,10 +3,6 @@ const deps = require('./../../package.json').dependencies;
 
 const createInternalLibsMappings = (included = []) => {
   const internalMappings = {
-    '@meetings-nx-microfrontends/shared/meetings-data-layer': {
-      singleton: true,
-      import: 'libs/shared/meetings-data-layer/src/index',
-    },
     '@meetings-nx-microfrontends/shared/core': {
       singleton: true,
       import: 'libs/shared/core/src/index.ts',
@@ -14,7 +10,7 @@ const createInternalLibsMappings = (included = []) => {
     '@meetings-nx-microfrontends/shared/ui': { singleton: true, import: 'libs/shared/ui/src/index.ts' },
     '@meetings-nx-microfrontends/shared/shared-data-layer': {
       singleton: true,
-      import: 'libs/shared/shared-data-layer/src/index.ts',
+      import: 'libs/shared/shared-data-layer/src/index',
     },
     '@microfrontendly/ng': {
       singleton: true,

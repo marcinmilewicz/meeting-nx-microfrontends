@@ -34,7 +34,7 @@
       "@meetings-nx-microfrontends/meeting-templates/meeting-templates-feature": [
         "libs/meeting-templates/meeting-templates-feature/src/index.ts"
       ],
-      "@meetings-nx-microfrontends/shared-shared-data-layer": ["libs/shared/shared-data-layer/src/index.ts"],
+      "@meetings-nx-microfrontends/shared/shared-data-layer": ["libs/shared/shared-data-layer/src/index.ts"],
       "@meetings-nx-microfrontends/shared/core": ["libs/shared/core/src/index.ts"],
       "@meetings-nx-microfrontends/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@microfrontendly/ng": ["libs/microfrontendly-ng/src/index.ts"]
