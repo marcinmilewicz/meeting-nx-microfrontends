@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ScheduledMeetingBase } from '@meetings-nx-microfrontends/meeting-scheduled/meeting-scheduled-data-layer';
-
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/angular';
 import { map, mergeMap, tap } from 'rxjs/operators';
 import { MeetingScheduledRepository } from '../meeting-scheduled.repository';
-
 import * as MeetingScheduledActions from './meeting-scheduled.actions';
+import { ScheduledMeetingBase } from './meeting-scheduled.models';
 import * as MeetingScheduledFeature from './meeting-scheduled.reducer';
 
 @Injectable()
