@@ -5,7 +5,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreModule, FirebaseConnectorModule } from '@meetings-nx-microfrontends/shared/core';
 import { MaterialSharedModule } from '@meetings-nx-microfrontends/shared/ui';
-import { environment } from '../../../meeting-scheduled-app/src/environments/environment';
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 import { MeetingsHeaderComponent } from './header/meetings-header.component';
 import { NoopComponent } from './noop.component';

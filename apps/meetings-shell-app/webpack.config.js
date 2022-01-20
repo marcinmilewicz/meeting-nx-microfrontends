@@ -33,7 +33,6 @@ module.exports = {
         ...createExternalLibsMappings(),
         ...createInternalLibsMappings([
           '@meetings-nx-microfrontends/shared/core',
-          '@meetings-nx-microfrontends/shared/ui',
           '@meetings-nx-microfrontends/shared/shared-data-layer',
           '@microfrontendly/ng',
         ]),

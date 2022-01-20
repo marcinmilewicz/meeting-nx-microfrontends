@@ -9,7 +9,5 @@ export const environment: MeetingsAppConfiguration = {
     storageBucket: process.env.FIRESTORE_STORAGE_BUCKET,
     messagingSenderId: process.env.MESSAGING_SENDER_ID,
     appId: process.env.FIRESTORE_APP_ID,
-  },
-  templatesCollection: 'templates',
-  scheduledCollection: 'scheduled',
+  }
 };
