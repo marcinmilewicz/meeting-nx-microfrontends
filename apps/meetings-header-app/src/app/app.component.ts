@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'meetings-header-app';
+  routes = [
+    {
+      displayName: 'Meeting Templates',
+      routePath: 'meeting-templates',
+    },
+    {
+      displayName: 'Scheduled Meetings',
+      routePath: 'meeting-scheduled',
+    },
+  ];
 }

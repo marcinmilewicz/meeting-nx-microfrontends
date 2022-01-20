@@ -3,17 +3,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '@meetings-nx-microfrontends/authentication-authentication-core-layer';
 import { AngularRoute } from '@microfrontendly/ng';
 
-const ROUTES = [
-  {
-    displayName: 'Meeting Templates',
-    routePath: 'meeting-templates',
-  },
-  {
-    displayName: 'Scheduled Meetings',
-    routePath: 'meeting-scheduled',
-  },
-];
-
 // Example for Micro Frontend pitfall
 @Component({
   selector: 'meetings-nx-microfrontends-meetings-header',
@@ -22,7 +11,7 @@ const ROUTES = [
   providers: [AuthService],
 })
 export class MeetingsHeaderComponent {
-  currentRoutes: AngularRoute[] = ROUTES;
+  currentRoutes: AngularRoute[] = [];
   @Input() set routes(value: AngularRoute[]) {
     this.currentRoutes = value;
   }
