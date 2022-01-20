@@ -12,6 +12,10 @@ const createInternalLibsMappings = (included = []) => {
       import: 'libs/shared/core/src/index.ts',
     },
     '@meetings-nx-microfrontends/shared/ui': { singleton: true, import: 'libs/shared/ui/src/index.ts' },
+    '@meetings-nx-microfrontends/shared/shared-data-layer': {
+      singleton: true,
+      import: 'libs/shared/shared-data-layer/src/index.ts',
+    },
     '@microfrontendly/ng': {
       singleton: true,
       import: 'libs/microfrontendly-ng/src/index',
