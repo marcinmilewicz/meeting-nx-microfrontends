@@ -19,7 +19,7 @@ import { AppComponent } from './app.component';
     RouterModule.forRoot([
       {
         path: '',
-        ...canActivate(() => redirectUnauthorizedTo(['login'])),
+        ...canActivate(() => redirectUnauthorizedTo('auth/logout')),
         loadChildren: () =>
           import('./remote-entry/meeting-templates-app.module').then(
             ({ MeetingTemplatesAppModule }) => MeetingTemplatesAppModule

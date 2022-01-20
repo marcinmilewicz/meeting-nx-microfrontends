@@ -13,7 +13,7 @@ export const initialRoute: Route = {
 export const staticRoutes = [
   {
     path: '',
-    ...canActivate(() => redirectUnauthorizedTo(['auth/login'])),
+    ...canActivate(() => redirectUnauthorizedTo(['auth/logout'])),
     component: AppComponent,
     children: [
       initialRoute,
@@ -50,7 +50,7 @@ export const staticRoutes = [
 export const routesFactory: RoutesFactory = (dynamicRoutes: Routes) => [
   {
     path: '',
-    ...canActivate(() => redirectUnauthorizedTo('auth/login')),
+    ...canActivate(() => redirectUnauthorizedTo('auth/logout')),
     component: AppComponent,
     children: [initialRoute, ...dynamicRoutes],
   },
